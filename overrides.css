@@ -1,0 +1,1 @@
+.active-row td:first-child{border-left:4px solid #e96666}.closed-row td:first-child{border-left:4px solid #27a876}.status-active{color:#bd3838}.status-closed{color:#197951}.column-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.column-grid label{padding:8px;border-bottom:1px solid var(--line);color:var(--muted)}
