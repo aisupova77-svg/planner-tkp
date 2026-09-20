@@ -14,11 +14,13 @@
 @media(max-width:380px){.cards{grid-template-columns:1fr}.top-actions button:not(.primary){display:none}.kpi-card{min-height:86px}}
 
 /* Compact phone layout: cards stay readable without expanding to a full-width row. */
-@media(max-width:720px){
+/* Also use device width: this prevents Android "desktop site" mode from shrinking the app. */
+@media (max-width:720px), (max-device-width:720px){
   html{-webkit-text-size-adjust:100%}
   body{overflow-x:hidden;font-size:13px}
-  .app,main{min-width:0}
-  .sidebar{padding:7px 8px 0}
+  .app{display:block;min-width:0;width:100%}
+  main{min-width:0;width:100%}
+  .sidebar{display:block;padding:7px 8px 0;border-right:0;border-bottom:1px solid var(--line)}
   .brand{padding:4px 5px 8px}
   .brand small{font-size:9px}
   .sidebar nav{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:4px;overflow:visible;width:100%}
@@ -32,7 +34,7 @@
   .top-actions button{min-width:0;padding:7px 8px;font-size:10px;white-space:nowrap}
   .top-actions #tg{display:none}
   .top-actions .primary{grid-column:span 2}
-  .wrap{padding:11px 8px}
+  .wrap{width:100%;max-width:none;margin:0;padding:11px 8px}
   .wrap h1{font-size:21px}
   .cards,.project-cards{grid-template-columns:repeat(2,minmax(0,1fr));gap:7px}
   .kpi-card,.project-cards .card{min-height:88px;padding:10px;box-shadow:none}
@@ -41,11 +43,17 @@
   .kpi-card strong{margin:8px 0 2px;font-size:18px;letter-spacing:-.25px}
   .kpi-card .kpi-note{font-size:9px;line-height:1.15}
   .kpi-card .kpi-icon.kpi-action{width:25px;height:25px;flex-basis:25px;font-size:13px}
-  .period,.toolbar{margin:9px 0;padding:8px;gap:5px}
+  .period,.toolbar{width:100%;margin:9px 0;padding:8px;gap:5px}
   .period button,.toolbar button{padding:7px;font-size:10px}
   .card{padding:12px}
+  .combo-chart{height:185px!important;padding:18px 13px 36px 48px!important;gap:3px}
+  .combo-chart .axis-labels{left:2px!important;top:10px!important;bottom:34px!important;width:42px!important;font-size:8px!important}
+  .combo-chart .plan-svg{left:48px!important;width:calc(100% - 61px)!important;top:18px!important;height:calc(100% - 54px)!important}
+  .combo-chart .combo-bar{width:10px;max-height:135px!important}
+  .combo-month:after{font-size:8px!important;top:calc(100% + 6px)!important}
+  .panel{width:100%;max-width:100%;overflow-x:auto}
 }
-@media(max-width:380px){
+@media (max-width:380px), (max-device-width:380px){
   .cards,.project-cards{grid-template-columns:repeat(2,minmax(0,1fr))}
   .top-actions #theme{display:block}
   .kpi-card{min-height:84px;padding:9px}
